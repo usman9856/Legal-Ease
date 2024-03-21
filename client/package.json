@@ -1,5 +1,4 @@
 {
-  "homepage": "https://usman9856.github.io//Legal-Ease",
   "name": "client",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +8,8 @@
     "@testing-library/user-event": "^13.5.0",
     "gh-pages": "^6.1.1",
     "react": "^18.2.0",
+    "react-data-table-component": "^7.6.2",
+    
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2",
     "react-scripts": "5.0.1",
@@ -18,11 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build --repo=https://github.com/usman9856/Legal-Ease.git"
-
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

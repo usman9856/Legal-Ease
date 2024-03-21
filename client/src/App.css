@@ -83,3 +83,148 @@
   background-position: center;
   
 }
+
+
+
+
+.card-title {
+  color: #262626;
+  font-size: 1.5em;
+  line-height: normal;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+.small-desc {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.5em;
+  color: #452c2c;
+  margin-bottom: 5px; /* Add some space between paragraphs */
+}
+
+.go-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  background: linear-gradient(135deg, #6293c8, #384c6c);
+  border-radius: 0 4px 0 32px;
+  margin-left: 10px; /* Add some space between content and the arrow */
+}
+
+.go-arrow {
+  margin-top: -4px;
+  margin-right: -4px;
+  color: white;
+  font-family: courier, sans;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  max-width: 80%;
+  position: relative;
+  width: fit-content;
+  max-height: 250px;
+  background-color: #f2f8f9;
+  border-radius: 10px;
+  padding: 2em 1.2em;
+  margin: 12px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #c3e6ec, #a7d1d9);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: bacground-color 0.7s;
+  
+}
+
+.card:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: linear-gradient(135deg, #364a60, #384c6c);
+  height: 50%;
+  width: 50%;
+  border-radius: 32px;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition: transform 0.35s ease-out;
+}
+
+.card:hover:before {
+  transform: scale(3.5);
+}
+
+.card:hover .small-desc {
+  transition: all 0.5s ease-out;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card:hover .card-title {
+  transition: all 0.5s ease-out;
+  color: #ffffff;
+  /* background-color: #6293c8; Change background color to blue on hover */
+}
+
+.card-container {
+  display: flex;
+}
+
+.card-image-container {
+  position: relative;
+  margin-right: 10px; /* Add some margin to separate the image from the vertical line */
+}
+
+
+.card-content {
+  padding-left: 20px; /* Adjust padding as needed */
+}
+
+.card-title {
+  margin-bottom: 10px; /* Add some space between title and other content */
+}
+
+.small-desc {
+  margin-bottom: 5px; /* Add some space between paragraphs */
+}
+
+.go-corner {
+  margin-left: 10px; /* Add some space between content and the arrow */
+}
+
+div,p{
+  background-color: transparent;
+}
+
+
+h4 {
+  background-color: transparent;
+}
+
+th {
+  margin: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  border-width: 2px;
+  background-color: #a7d1d9;
+}
+
+td{
+  margin: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: aliceblue;
+}

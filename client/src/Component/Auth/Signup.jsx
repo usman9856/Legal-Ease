@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back_button from "../../Assets/Icon/left-arrow.png"
 // Step 1: Email and Password
-const Step1 = ({ onNext  }) => {
+const Step1 = ({ onNext }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,33 +22,36 @@ const Step1 = ({ onNext  }) => {
                 <label className="block text-white mb-2" htmlFor="password">Password</label>
                 <input className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
-            <hr className="my-10" />
-            <br />
+            <div className="mb-4">
+                <label className="block text-white mb-2" htmlFor="password">Confirm Password</label>
+                <input className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" type="password" id="confirm password" name="confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+            </div>
+            <hr className="my-8" />
             <p className="text-white mb-4">Already a member? <a href="/Signup" className="text-blue-500">LOGIN!</a></p>
-            <br />
-            <br />
+
             <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Next</button>
         </form>
     );
 };
 
 const Step2 = ({ onNext }) => {
-    const [fullName, setFullName] = useState("");
+    const [name, setName] = useState("");
     const [dob, setDob] = useState("");
     const [nicNumber, setNicNumber] = useState("");
-    const [contactDetail, setContactDetail] = useState("");
+    const [contact, setContact] = useState("");
+    const [gender, setGender] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onNext({ fullName, dob, nicNumber, contactDetail });
+        onNext({ name, dob, nicNumber, contact, gender });
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <div className="h-[80%] mb-8">
                 <div className="mb-4">
-                    <label className="block text-white mb-2" htmlFor="fullName">Full Name</label>
-                    <input className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" type="text" id="fullName" name="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} />
+                    <label className="block text-white mb-2" htmlFor="name">Name</label>
+                    <input className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
                 </div>
                 <div className="mb-4">
                     <label className="block text-white mb-2" htmlFor="dob">Date of Birth</label>
@@ -58,8 +62,16 @@ const Step2 = ({ onNext }) => {
                     <input className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" type="text" id="nicNumber" name="nicNumber" value={nicNumber} onChange={(e) => setNicNumber(e.target.value)} />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-white mb-2" htmlFor="contactDetail">Contact Detail</label>
-                    <input className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" type="text" id="contactDetail" name="contactDetail" value={contactDetail} onChange={(e) => setContactDetail(e.target.value)} />
+                    <label className="block text-white mb-2" htmlFor="contact">Contact Detail</label>
+                    <input className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" type="text" id="contact" name="contact" value={contact} onChange={(e) => setContact(e.target.value)} />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-white mb-2" htmlFor="gender">Gender</label>
+                    <select className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" id="gender" name="gender" value={gender} onChange={(e) => setGender(e.target.value)}>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
             </div>
             <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Next</button>
@@ -69,38 +81,35 @@ const Step2 = ({ onNext }) => {
 
 // Step 3: Profile Image Upload
 const Step3 = ({ onSubmit }) => {
-    const [image, setImage] = useState(null);
-
-    const handleImageChange = (e) => {
-        const file = e.target.files[0];
-        setImage(file);
-    };
+    const [country, setCountry] = useState("");
+    const [city, setCity] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(image);
+        onSubmit({ country, city });
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className="h-[275px] mb-8">
-
-                <div className="mb-4">
-                    <label className="block text-white mb-2" htmlFor="profileImage">Profile Image</label>
-                    <input className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" type="file" id="profileImage" name="profileImage" onChange={handleImageChange} />
-                </div>
+            <div className="mb-4">
+                <label className="block text-white mb-2" htmlFor="country">Country</label>
+                <input className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" type="text" id="country" name="country" value={country} onChange={(e) => setCountry(e.target.value)} />
             </div>
-            <br />
-                <p className="text-white mb-4">You can add the image later on as well</p>
+            <div className="mb-4">
+                <label className="block text-white mb-2" htmlFor="city">City</label>
+                <input className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" type="text" id="city" name="city" value={city} onChange={(e) => setCity(e.target.value)} />
+            </div>
+            <hr className="my-10"/>
             <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Submit</button>
         </form>
     );
 };
 
+
 const Register = () => {
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
-    const handleRegister =()=>{
+    const handleRegister = () => {
         navigate('/HomePage')
     }
     const handleNext = (data) => {
@@ -109,20 +118,20 @@ const Register = () => {
     };
     const handlePrevious = (data) => {
         // Logic to handle data and navigate to next step
-        if(step !==1){
+        if (step !== 1) {
             setStep(step - 1);
         }
     };
 
     return (
         <>
-            <div className="flex h-screen items-center justify-center">
-                <div className="flex flex-col border border-solid p-14 rounded-2xl w-[400px] h-[550px] relative">
-                    <div onClick={handlePrevious}><img src={back_button} alt="back" className="w-8 h-8 mt-[-30px]"/></div>
+            <div className="flex h-screen items-center justify-center my-16">
+                <div className="flex flex-col border border-solid p-14 rounded-2xl w-[400px] h-fit  relative">
+                    <div onClick={handlePrevious}><img src={back_button} alt="back" className="w-8 h-8 mt-[-30px]" /></div>
                     <center><h2 className="text-white text-2xl mb-4">REGISTER NOW!</h2></center>
                     {step === 1 && <Step1 onNext={handleNext} />}
                     {step === 2 && <Step2 onNext={handleNext} />}
-                    {step === 3 && <Step3 onNext={ handleRegister} />}
+                    {step === 3 && <Step3 onNext={handleRegister} />}
                     <div className="absolute bottom-4 right-4 text-white">{step}/3</div>
                 </div>
             </div>
