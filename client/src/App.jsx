@@ -23,7 +23,7 @@ import EditAccountAdmin from './Component/Admin/EditAccountAdmin';
 
 function App() {
 
-  const isLoggedIn = false;
+  const isLoggedIn = true;
   const userType = 'admin';
 
   return (
@@ -65,7 +65,7 @@ function App() {
           <Route exact path="/Laws" element={<Law />} />
           <Route exact path="/AdvocateSearch" element={<Search />} />
           <Route exact path="/SignupAdvocate" element={<RegisterAdvocate />} />
-          <Route exact path="/CreateAccountAdmin" element={<SignupAdmin />} />
+          <Route exact path="/SignupAdmin" element={<SignupAdmin />} />
           <Route exact path="/Profile" element={<ProfileManagement />} />
           <Route exact path="/AdvocateDetail" element={<AdvocateDetail />} />
           <Route exact path="/AdminLanding" element={<AdminPage />} />

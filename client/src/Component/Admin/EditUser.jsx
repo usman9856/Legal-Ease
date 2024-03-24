@@ -41,7 +41,7 @@ export default function EditUser() {
     const handleEdit = (row) => {
         const selectedRow = data.find(item => item.id === row.id);
         setSelectedData([selectedRow]); // Wrap the selected row in an array
-        navigate('/CreateAccountAdmin', { state: { selectedRow } }); // Pass state object directly
+        navigate('/EditAccountAdmin', { state: { selectedRow } }); // Pass state object directly
         console.log("Data Edit", selectedRow); // Log the selected row
     }
 

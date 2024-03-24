@@ -8,6 +8,7 @@ export default function SignupAdmin() {
 
 
     const [userType, setUserType] = useState("admin"); // State to store user's userType
+    const [userType_s, setuserType_s] = useState("user"); // State to store user's userType
 
 
     const Step0 = ({ onNext }) => {
@@ -216,8 +217,8 @@ export default function SignupAdmin() {
                     <select
                         id="userType"
                         name="userType"
-                        value={userType}
-                        onChange={(e) => setUserType(e.target.value)}
+                        value={userType_s}
+                        onChange={(e) => setuserType_s(e.target.value)}
                         className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500 mb-4"
                     >
                         <option value="">Select one</option>
@@ -309,7 +310,7 @@ export default function SignupAdmin() {
                 <Step2 onNext={() => setStep(3)} />
                 <Step3 onNext={() => setStep(4)} />
 
-                {userType === 'advocate' && <Step4/>}
+                {userType_s === 'advocate' && <Step4/>}
 
                 <center>
                     <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-80 " onClick={handleSave}>

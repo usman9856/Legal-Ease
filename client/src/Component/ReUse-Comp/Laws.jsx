@@ -7,7 +7,7 @@ import db_upload from "../../Assets/Icon/server.png";
 
 export default function Law() {
 
-    const userType = 'admin' // fetch user type from API
+    const userType = 'user' // fetch user type from API
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [name, setName] = useState("");
@@ -70,7 +70,7 @@ export default function Law() {
 
 
     return (
-        <>
+        <div className="min-h-full">
             {userType === 'admin' && (
                 <center>
                     <div className="max-w-[80%] flex justify-end mt-5">
@@ -135,8 +135,8 @@ export default function Law() {
                 <h1 className="flex justify-center items-center mt-20 text-3xl font-mono text-white capitalize">LEGAL LIBRARY</h1>
                 <img src={filter} alt="filter icon" className="cursor-pointer mt-20 w-10 h-10 border-2 border-black rounded bg-slate-500" onClick={handleFilterState} />
             </div>
-            <div className="mx-10 mt-2 border-2 border-black flex justify-between items-center" style={{ opacity: filterOpen ? 1 : 0, transition: "opacity 0.3s ease-in-out" }}>
-                <div className="flex items-start ">
+            <div className="mx-10 mt-2 border-2 border-black flex justify-between items-start flex-wrap sm:flex-col" style={{ opacity: filterOpen ? 1 : 0, transition: "opacity 0.3s ease-in-out" }}>
+                <div className="flex items-start flex-wrap">
                     {/* Input fields to be shown when filter is open */}
                     <input style={{ padding: "1rem", border: "2px solid white", color: "black", margin: "0.5rem", borderRadius: "1rem", backgroundColor: "slategray" }} type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                     <select style={{ padding: "1rem", border: "2px solid white", color: "black", margin: "0.5rem", borderRadius: "1rem", backgroundColor: "slategray" }} value={category} onChange={(e) => setCategory(e.target.value)}>
@@ -150,16 +150,16 @@ export default function Law() {
                 </div>
 
                 <div>
-                    <button className=" border-2 border-white bg-green-500 text-black m-4 rounded-2xl w-32 h-12" onClick={handleSearch}>Search</button>
+                    <button className="border-2 border-white bg-green-500 text-black m-4 rounded-2xl w-32 h-12" onClick={handleSearch}>Search</button>
                 </div>
-
             </div>
-            <div className="h-screen m-5 flex flex-col justify-start items-center py-10">
+
+            <div className="min-h-screen h-full m-5 flex flex-col justify-start items-center py-10">
                 {/* Map over the array and render each dropdown dynamically */}
                 {dropdownItems.map((item, index) => (
                     <SimpleDropdown key={index} title={item.title} content={item.description} />
                 ))}
             </div>
-        </>
+        </div>
     );
 }

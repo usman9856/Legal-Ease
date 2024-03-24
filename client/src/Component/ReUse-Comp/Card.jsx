@@ -18,7 +18,7 @@ function Card({ advocateName, price, description, datePosted, location, imageUrl
         rating
       }
     });
-    console.log(advocateName, price, description, datePosted, location, imageUrl, tags, rating )
+    console.log(advocateName, price, description, datePosted, location, imageUrl, tags, rating)
   };
 
 
@@ -47,18 +47,14 @@ function Card({ advocateName, price, description, datePosted, location, imageUrl
   console.log('Rendering Card with rating:', rating);
 
   return (
-    <div className="card my-5" onClick={handleChoose}>
-      <div className="card-container">
-        <div className="card-image-container">
-          <div className="card-image-container">
-            <div className="flex justify-center items-center h-32 w-32 bg-white">
-              <img src={imageUrl ? imageUrl : defaultImage} alt={advocateName} className="card-image w-6 h-6 bg-transparent" />
-            </div>
-          </div>
+    <div className="card my-5 overflow-y-auto" onClick={handleChoose}>
+      <div className="card-container flex flex-col sm:flex-row">
+        <div className="card-image-container flex justify-center items-center h-32 w-32 bg-white">
+          <img src={imageUrl ? imageUrl : defaultImage} alt={advocateName} className="card-image w-6 h-6 bg-transparent" />
         </div>
-        <div className="card-content border-l border-gray-500 hover:border-gray-300">
+        <div className="card-content border-l border-gray-500 hover:border-gray-300 flex-1 ml-0 sm:ml-4 mt-4 sm:mt-0">
           <p className="card-title">{advocateName}</p>
-          <p className="small-desc">{price}/hr</p>
+          {/* <p className="small-desc">{price}/hr</p> */}
           <p className="small-desc">{description}</p>
           <br />
           <div className="tags-container">
@@ -72,17 +68,20 @@ function Card({ advocateName, price, description, datePosted, location, imageUrl
               <p className="small-desc mr-2">{datePosted}</p>
               <p className="small-desc">{location}</p>
             </div>
-            <div className="flex ">
+            <div className="flex">
               {rating && renderStars()}
             </div>
           </div>
         </div>
       </div>
-      <div className="go-corner">
+      <div className="go-corner hidden sm:block">
         <div className="go-arrow">→</div>
       </div>
     </div>
   );
+  
+
+
 };
 
 export default Card;

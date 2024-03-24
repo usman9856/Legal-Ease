@@ -33,7 +33,6 @@ const AdvocateDetail = () => {
         );
     };
 
-
     return (
         <div className='grid md:grid-cols-3 min-h-screen h-full m-2 justify-center items-center md:w-screen'>
             <div className='col-span-1 md:col-span-1 h-screen md:w-full sm:w-screen px-6'>
@@ -47,7 +46,7 @@ const AdvocateDetail = () => {
                     </div>
                 </div>
             </div>
-            <div className='border-2 border-black col-span-1 md:col-span-2 h-screen w-[95%] p-5 bg-zinc-600'>
+            <div className='border-2 border-black col-span-1 md:col-span-2 h-screen w-[95%] p-5 bg-zinc-600 overflow-y-auto'>
                 <div>
                     <div className="flex justify-start border-b-2 border-gray-300 pb-2">
                         <button
@@ -63,21 +62,21 @@ const AdvocateDetail = () => {
                             Contact
                         </button>
                     </div>
-
-                    <div className="mt-4 mx-4">
+    
+                    <div className="mt-4 mx-4 sm:w-[80%]">
                         {selectedTab === 'expertise' && (
-
+    
                             <div>
                                 <p> <h4>Name:</h4> {advocateName}</p> <br />
                                 <p> <h4>Date:</h4>  {datePosted}</p><br />
                                 <p> <h4>Location:</h4> {location}</p><br />
                                 <p> <h4>Description:</h4>  {description}</p>
                                 <br />
-                                <p> <h4>Price:</h4>  {price}/hr</p>
+                                {/* <p> <h4>Price:</h4>  {price}/hr</p> */}
                                 <br />
                                 <p> <h4>Rating:</h4> {rating && renderStars()}</p>
                                 <br />
-                                <p>  {tags.map((tag, index) => (
+                                <p className='flex flex-wrap'>  {tags.map((tag, index) => (
                                     <span key={index} className="bg-[#FAF9F6] border-2 rounded-3xl py-1 px-2 m-1 cursor-pointer">{tag}</span>
                                 ))}</p>
                             </div>
@@ -91,9 +90,9 @@ const AdvocateDetail = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
+    
 };
 
 export default AdvocateDetail;

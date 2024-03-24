@@ -50,8 +50,8 @@ export default function Search() {
 
     return (
         <div className="min-h-screen h-full">
-            <div className="flex justify-between items-center flex-row-reverse">
-                <div className="flex items-end justify-end p-5">
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+                <div className="flex items-center justify-center sm:justify-end p-5">
                     <div className="rounded-l p-5">
                         <div className="flex">
                             <div className="flex w-10 items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-white p-5">
@@ -66,8 +66,8 @@ export default function Search() {
                 </div>
                 <img src={filter} alt="filter icon" className="cursor-pointer mx-10 w-10 h-10 border-2 border-black rounded bg-slate-500" onClick={handleFilterState} />
             </div>
-            <div className="mx-10 mt-2 border-2 border-black flex justify-between items-center" style={{ opacity: filterOpen ? 1 : 0, transition: "opacity 0.3s ease-in-out" }}>
-                <div className="flex items-start">
+            <div className="mx-10 mt-2 border-2 border-black flex justify-between items-start flex-wrap sm:flex-col" style={{ opacity: filterOpen ? 1 : 0, transition: "opacity 0.3s ease-in-out" }}>
+                <div className="flex flex-col sm:flex-row items-start">
                     <input style={{ padding: "1rem", border: "2px solid white", color: "black", margin: "0.5rem", borderRadius: "1rem", backgroundColor: "slategray" }} type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                     <select style={{ padding: "1rem", border: "2px solid white", color: "black", margin: "0.5rem", borderRadius: "1rem", backgroundColor: "slategray" }} value={category} onChange={(e) => setCategory(e.target.value)}>
                         <option value="">Select Category</option>
@@ -82,7 +82,7 @@ export default function Search() {
                     <button className="border-2 border-white bg-green-500 text-black m-4 rounded-2xl w-32 h-12" onClick={handleSearch}>Search</button>
                 </div>
             </div>
-
+    
             <div className="flex justify-center items-center flex-col">
                 {cardsData.map((card, index) => (
                     <Card
@@ -99,4 +99,4 @@ export default function Search() {
             </div>
         </div>
     );
-}
+    }
