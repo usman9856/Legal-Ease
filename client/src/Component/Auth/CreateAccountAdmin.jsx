@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useUserStatus, useLoginStatus } from '../Auth/UserStatus';
 
 
 
@@ -7,8 +8,8 @@ import React, { useState } from "react";
 export default function SignupAdmin() {
 
 
-    const [userType, setUserType] = useState("admin"); // State to store user's userType
-    const [userType_s, setuserType_s] = useState("user"); // State to store user's userType
+    const [userType, setUserType] = useState(useUserStatus()); // State to store user's userType
+    const [userType_s, setuserType_s] = useState("user"); 
 
 
     const Step0 = ({ onNext }) => {

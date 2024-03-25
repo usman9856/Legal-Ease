@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useUserStatus, useLoginStatus } from '../Auth/UserStatus';
 
 
 const Step0 = ({ onNext }) => {
@@ -262,7 +263,7 @@ export default function ProfileManagement() {
     const [step, setStep] = useState(1);
 
     
-    const userType = 'user';//fetch userType type
+    const userType = useUserStatus();//fetch userType type
 
 
 

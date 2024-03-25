@@ -28,7 +28,7 @@ export default function LoginAdovcate() {
                         </div>
                         <hr className="my-10" />
                         <p className="text-white mb-4">Forgot your password? <a href="/forgot-password" className="text-blue-500">Reset it here</a></p>
-                        <p className="text-white mb-4">Not a user yet? <a href="/Signup" className="text-blue-500">Sigup here</a></p>                        
+                        <p className="text-white mb-4">Not a user yet? <a href="/SignupAdvocate" className="text-blue-500">Sigup here</a></p>                        
                         <button className=" animate-pulse w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Login</button>
                     </form>
                 </div>

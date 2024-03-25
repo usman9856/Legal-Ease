@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom'; // Import useLocation from react-router-dom
+import { useUserStatus, useLoginStatus } from '../Auth/UserStatus';
 
 
 
@@ -29,7 +30,7 @@ export default function EditAccountAdmin() {
     const { selectedRow } = location.state;
     const [fetchedData, setFetchedData] = useState(null);
     const [userType_, setUserType_] = useState("admin"); // State to store user's userType
-    const [userType, setUserType] = useState("admin"); // State to store user's userType
+    const [userType, setUserType] = useState(useUserStatus()); // State to store user's userType
 
 
 

@@ -4,11 +4,12 @@ import right_arrow from "../../Assets/Icon/right-arrow.png";
 import download from "../../Assets/Icon/download.png";
 import dump from "../../Assets/Icon/delete.png";
 import edit from "../../Assets/Icon/edit.png";
+import { useUserStatus, useLoginStatus } from '../Auth/UserStatus';
 
 
 function SimpleDropdown({ title, content }) {
 
-    const userType = 'admin' // fetch user type from API
+    const userType = useUserStatus() // fetch user type from API
 
     const [isOpen, setIsOpen] = useState(false);
     const toggleDropdown = () => setIsOpen(!isOpen);

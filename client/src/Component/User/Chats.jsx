@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useUserStatus, useLoginStatus } from '../Auth/UserStatus';
 
 export default function Chat() {
     const [messages, setMessages] = useState([]);
@@ -6,7 +7,7 @@ export default function Chat() {
 
 
     const username = 'Daniyal';
-    const isLoggedIn = true; //fetch login status
+    const isLoggedIn = useLoginStatus(); //fetch login status
 
 
     const handleMessageSend = () => {

@@ -17,14 +17,16 @@ import ChatBot from './Component/User/Law-GPT';
 import AdvocateDetail from './Component/User/AdvocateDetail';
 import AdminPage from './Component/Admin/AdminLanding';
 import EditUser from './Component/Admin/EditUser';
-import AmendLaw from './Component/Admin/AmendLaw';
+// import AmendLaw from './Component/Admin/AmendLaw';
 import SignupAdmin from './Component/Auth/CreateAccountAdmin';
 import EditAccountAdmin from './Component/Admin/EditAccountAdmin';
+import { useUserStatus, useLoginStatus } from './Component/Auth/UserStatus';
+
 
 function App() {
 
-  const isLoggedIn = true;
-  const userType = 'admin';
+  const isLoggedIn = useLoginStatus();
+  const userType = useUserStatus();
 
   return (
 

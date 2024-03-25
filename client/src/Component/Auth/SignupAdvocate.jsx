@@ -29,7 +29,7 @@ const Step1 = ({ onNext }) => {
                 <input className="block w-full p-2 rounded border border-gray-400 focus:outline-none focus:border-blue-500" type="password" id="confirm password" name="confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
             </div>
             <hr className="my-8" />
-            <p className="text-white mb-4">Already a member? <a href="/Signup" className="text-blue-500">LOGIN!</a></p>
+            <p className="text-white mb-4">Already a member? <a href="/LoginAdvocate" className="text-blue-500">LOGIN!</a></p>
 
             <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Next</button>
         </form>
@@ -162,7 +162,7 @@ const RegisterAdvocate = () => {
             <div className="flex h-screen items-center justify-center my-16">
                 <div className="flex flex-col border border-solid p-14 rounded-2xl w-[400px] h-fit  relative">
                     <div onClick={handlePrevious}><img src={back_button} alt="back" className="w-8 h-8 mt-[-30px]" /></div>
-                    <center><h2 className="text-white text-2xl mb-4">REGISTER NOW!</h2></center>
+                    <center><h2 className="text-white text-2xl mb-4">REGISTER AS ADVOCATE!</h2></center>
                     {step === 1 && <Step1 onNext={handleNext} />}
                     {step === 2 && <Step2 onNext={handleNext} />}
                     {step === 3 && <Step3 onNext={handleNext} />}

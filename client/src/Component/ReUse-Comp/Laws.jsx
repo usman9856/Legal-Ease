@@ -4,10 +4,11 @@ import SimpleDropdown from "./dropDownContent";
 import filter from "../../Assets/Icon/filter.png";
 import file from "../../Assets/Icon/file.png";
 import db_upload from "../../Assets/Icon/server.png";
+import { useUserStatus, useLoginStatus } from '../Auth/UserStatus';
 
 export default function Law() {
 
-    const userType = 'user' // fetch user type from API
+    const userType = useUserStatus() // fetch user type from API
 
     const [filterOpen, setFilterOpen] = useState(false);
     const [name, setName] = useState("");

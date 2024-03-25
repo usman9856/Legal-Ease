@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import defaultImage from '../../Assets/Icon/image.png';
 import { useLocation } from 'react-router-dom';
+
+
+
 const AdvocateDetail = () => {
 
 

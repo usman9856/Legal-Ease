@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useUserStatus, useLoginStatus } from '../Auth/UserStatus';
 
 export default function ChatBot() {
     const [messages, setMessages] = useState([]);
@@ -9,7 +10,7 @@ export default function ChatBot() {
 
 
     
-    const isLoggedIn = true; //fetch login status
+    const isLoggedIn = useLoginStatus(); //fetch login status
 
 
 

@@ -8,13 +8,14 @@ import search from "../../Assets/Icon/magnifying-glass.png";
 import chatBot from "../../Assets/Icon/chatbot.png";
 import chat from "../../Assets/Icon/chat.png";
 // import UserAuth from "../Auth/UserStatus";
+import { useUserStatus, useLoginStatus } from '../Auth/UserStatus';
 
 
 export default function NavBar() {
 
 
-    const isLoggedIn = true; //fetch API for login status
-    const userType = 'admin'; //fetch user type from API
+    const isLoggedIn = useLoginStatus();
+    const userType = useUserStatus();
 
 
 
@@ -120,6 +121,7 @@ export default function NavBar() {
 
                         <ul className="mx-20 my-3 sm:my-2"></ul>
                         <ul className="flex flex-row justify-evenly">
+                            <Link to='/'><li className="mx-5 my-3 sm:my-2 hover:cursor-pointer text-white" >Home </li></Link>
                             <li className="mx-5 my-3 sm:my-2 hover:cursor-pointer text-white" onClick={() => scrollToSection("services")}>Services </li>
                             <li className="mx-5 my-3 sm:my-2 hover:cursor-pointer text-white" onClick={() => scrollToSection("cases")}>Cases   </li>
                             <li className="mx-5 my-3 sm:my-2 hover:cursor-pointer text-white" onClick={() => scrollToSection("client")}>Client  </li>
